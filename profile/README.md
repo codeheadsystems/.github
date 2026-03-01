@@ -17,14 +17,19 @@ All projects listed here are Apache 2 licensed open-source.
 
 * [the Hofmann Elimination](https://github.com/codeheadsystems/hofmann-elimination)
 
-In an effort to reduce the attack surface for websites with login credentials,
-I implemented OPAQUE/OPRF from RFC specs. OPAQUE removes the need to send the
-private key material (passwords, etc) to the website and yet still provide
-strong authentication for login. It does this by using the OPRF protocol and
-elliptic curves for hashing. All 3 RFCs that are involved with this protocol
-have been implemented in Java using Bouncy Castle as the core. Updates will
-include having JavaScript clients and, in the future, implementations in 
-other languages like Rust, Go and C# with full testing libraries. 
+To reduce the attack surface for sites storing login credentials, I implemented the OPAQUE password-authenticated key exchange (PAKE)
+protocol from its RFC specifications. OPAQUE eliminates the need to transmit passwords (or any private credential material) to the server 
+during authentication. The server never sees the password, yet strong mutual authentication is achieved.
+
+The protocol is built on OPRF (Oblivious Pseudorandom Function) and elliptic curve cryptography. All three underlying RFCs are implemented
+in Java using Bouncy Castle:
+
+- RFC 9380 — Hash-to-Elliptic-Curve
+- RFC 9497 — OPRF (mode 0)
+- RFC 9807 — OPAQUE-3DH
+
+A TypeScript client library is also included. Future work includes implementations in Rust, Go, and C#, along with cross-language test
+suites.
 
 
 * [The Libraries](https://github.com/codeheadsystems/libraries/)
